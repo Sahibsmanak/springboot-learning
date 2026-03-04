@@ -12,11 +12,10 @@ public class DemoController {
     private Coach myCoach;
 
   @Autowired
-//  USING CONSTRUCTOR
-//  public DemoController(@Qualifier("trackCoach") Coach theCoach) {
-//      myCoach = theCoach;
-//  }
-  public void test (@Qualifier("baseballCoach") Coach theCoach) {
+  //We can remove @Qualifier and the primary implementation will work but if we add quallifier it will
+  //give priority to qualifier
+  //Also more than one primary will cause error
+  public DemoController (@Qualifier("trackCoach") Coach theCoach) {
       myCoach = theCoach;
   }
 
