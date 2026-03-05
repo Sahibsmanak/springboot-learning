@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     private Coach myCoach;
+    private Coach myAnotherCoach;
 
   @Autowired
-  //We can remove @Qualifier and the primary implementation will work but if we add quallifier it will
-  //give priority to qualifier
-  //Also more than one primary will cause error
-  public DemoController (@Qualifier("trackCoach") Coach theCoach) {
+  public DemoController (@Qualifier("cricketCoach") Coach theCoach, @Qualifier("cricketCoach") Coach theAnotherCoach) {
       myCoach = theCoach;
+      myAnotherCoach = theAnotherCoach;
   }
 
     @GetMapping("/getDailyWorkout") 
@@ -24,4 +23,11 @@ public class DemoController {
             return myCoach.getDailyWorkout();
         }
     
+    /**
+     * If the type of the bean is singleton it will give true otherwise if type is protoype it will give false.
+     */
+    @GetMapping("/check")
+    public Boolean checkInstances() {
+        return myCoach == myAnotherCoach;
+    }
 }
