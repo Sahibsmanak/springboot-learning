@@ -23,10 +23,10 @@ public class HibernatedemoApplication {
 //          createMultipleStudents(studentDAO);
 //          readStudent(studentDAO);
 //          readAllStudents(studentDAO);
-//            findByLastName(studentDAO);
-//            updateStudent(studentDAO);
-//             deleteStudent(studentDAO);
-             deleteAllStudents(studentDAO);
+//          findByLastName(studentDAO);
+//          updateStudent(studentDAO);
+//          deleteStudent(studentDAO);
+//          deleteAllStudents(studentDAO);
 		};
 	}
 
