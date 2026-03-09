@@ -20,7 +20,7 @@ public class HibernatedemoApplication {
 	public CommandLineRunner commandLIneRunner(StudentDAO studentDAO) {
 		return runner -> {
 //		    createStudent(studentDAO);
-//          createMultipleStudents(studentDAO);
+          createMultipleStudents(studentDAO);
 //          readStudent(studentDAO);
 //          readAllStudents(studentDAO);
 //          findByLastName(studentDAO);
