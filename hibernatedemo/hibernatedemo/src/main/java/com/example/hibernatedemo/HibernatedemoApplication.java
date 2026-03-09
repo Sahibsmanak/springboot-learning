@@ -18,7 +18,8 @@ public class HibernatedemoApplication {
 	public CommandLineRunner commandLIneRunner(StudentDAO studentDAO) {
 		return runner -> {
 //			createStudent(studentDAO);
-            createMultipleStudents(studentDAO);
+//            createMultipleStudents(studentDAO);
+            readStudent(studentDAO);
 		};
 	}
 
@@ -49,6 +50,20 @@ public class HibernatedemoApplication {
         studentDAO.save(tempStudent2);
         studentDAO.save(tempStudent3);
 
+    }
+
+    public void readStudent (StudentDAO studentDAO) {
+        //Create Student Object
+        System.out.println("Creating New Student Object ...");
+        Student tempStudent = new Student("Sahib","Singh", "2000@gmail.com");
+
+        //Save Student Object
+        System.out.println("Saving the student");
+        studentDAO.save(tempStudent);
+
+        //read data through id
+        Student student = studentDAO.findById(tempStudent.getId());
+        System.out.println("Details of the student with id : " + tempStudent.getId() + ": " + student.toString() );
     }
 
 
