@@ -12,7 +12,10 @@ public class DemoController {
     private Coach myCoach;
 
   @Autowired
-  public DemoController (@Qualifier("swimCoach") Coach theCoach) {
+  //We can remove @Qualifier and the primary implementation will work but if we add quallifier it will
+  //give priority to qualifier
+  //Also more than one primary will cause error
+  public DemoController (@Qualifier("trackCoach") Coach theCoach) {
       myCoach = theCoach;
   }
 
@@ -20,4 +23,5 @@ public class DemoController {
         public String getDailyWorkout() {
             return myCoach.getDailyWorkout();
         }
+    
 }

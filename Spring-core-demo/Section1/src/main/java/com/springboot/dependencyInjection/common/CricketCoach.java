@@ -1,12 +1,10 @@
 package com.springboot.dependencyInjection.common;
 
 import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 
 @Component
-
+@Primary
 public class CricketCoach implements Coach {
     
     @Override
