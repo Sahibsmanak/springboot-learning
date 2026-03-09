@@ -23,7 +23,8 @@ public class HibernatedemoApplication {
 //          createMultipleStudents(studentDAO);
 //          readStudent(studentDAO);
 //          readAllStudents(studentDAO);
-            findByLastName(studentDAO);
+//            findByLastName(studentDAO);
+            updateStudent(studentDAO);
 		};
 	}
 
@@ -82,6 +83,12 @@ public class HibernatedemoApplication {
         for (Student student: students) {
             System.out.println("Last Name would be : " + student);
         }
+    }
+
+    public void updateStudent (StudentDAO studentDAO) {
+        Student student = studentDAO.findById(1);
+        student.setLastName("Singh");
+        studentDAO.update(student);
     }
 
 }
