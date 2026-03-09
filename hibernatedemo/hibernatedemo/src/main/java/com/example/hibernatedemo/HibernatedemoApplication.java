@@ -19,10 +19,11 @@ public class HibernatedemoApplication {
 	@Bean
 	public CommandLineRunner commandLIneRunner(StudentDAO studentDAO) {
 		return runner -> {
-//			createStudent(studentDAO);
+//		    createStudent(studentDAO);
 //          createMultipleStudents(studentDAO);
-//            readStudent(studentDAO);
-            readAllStudents(studentDAO);
+//          readStudent(studentDAO);
+//          readAllStudents(studentDAO);
+            findByLastName(studentDAO);
 		};
 	}
 
@@ -73,6 +74,13 @@ public class HibernatedemoApplication {
         List<Student> list = studentDAO.findAll();
         for (Student student : list) {
             System.out.println("Students List as follows :  " + student);
+        }
+    }
+
+    public void findByLastName (StudentDAO studentDAO) {
+        List<Student> students = studentDAO.findByLastName("Sharma");
+        for (Student student: students) {
+            System.out.println("Last Name would be : " + student);
         }
     }
 
