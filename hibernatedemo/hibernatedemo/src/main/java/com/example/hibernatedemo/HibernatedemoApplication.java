@@ -24,7 +24,9 @@ public class HibernatedemoApplication {
 //          readStudent(studentDAO);
 //          readAllStudents(studentDAO);
 //            findByLastName(studentDAO);
-            updateStudent(studentDAO);
+//            updateStudent(studentDAO);
+//             deleteStudent(studentDAO);
+             deleteAllStudents(studentDAO);
 		};
 	}
 
@@ -89,6 +91,15 @@ public class HibernatedemoApplication {
         Student student = studentDAO.findById(1);
         student.setLastName("Singh");
         studentDAO.update(student);
+    }
+
+    public void deleteStudent(StudentDAO studentDAO) {
+        Integer deletedStudentID = 1;
+        studentDAO.delete(deletedStudentID);
+    }
+
+    public void deleteAllStudents(StudentDAO studentDAO) {
+        System.out.println("Number of records deleted " + studentDAO.deleteAll());
     }
 
 }
