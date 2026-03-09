@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+
 @SpringBootApplication
 public class HibernatedemoApplication {
 
@@ -18,8 +20,9 @@ public class HibernatedemoApplication {
 	public CommandLineRunner commandLIneRunner(StudentDAO studentDAO) {
 		return runner -> {
 //			createStudent(studentDAO);
-//            createMultipleStudents(studentDAO);
-            readStudent(studentDAO);
+//          createMultipleStudents(studentDAO);
+//            readStudent(studentDAO);
+            readAllStudents(studentDAO);
 		};
 	}
 
@@ -66,5 +69,12 @@ public class HibernatedemoApplication {
         System.out.println("Details of the student with id : " + tempStudent.getId() + ": " + student.toString() );
     }
 
+    public void readAllStudents (StudentDAO studentDAO) {
+        List<Student> list = studentDAO.findAll();
+        for (Student student : list) {
+            System.out.println("Students List as follows :  " + student);
+        }
+    }
 
 }
+
